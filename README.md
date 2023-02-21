@@ -40,6 +40,8 @@ posteriormente, ao estado buscando, caso não receba prog=5 (ativaria o estado b
 dados, quando recebe um prog=7, o estado espera é reativado. Também, o estado blocking pode reativar o estado buscando quando receber um prog=6.
  </div>
  
+ 
+ 
  # Traffic Filter (English)
 
 <div align="left"> 
