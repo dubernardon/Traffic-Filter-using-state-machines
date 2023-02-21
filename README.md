@@ -40,6 +40,23 @@ posteriormente, ao estado buscando, caso não receba prog=5 (ativaria o estado b
 dados, quando recebe um prog=7, o estado espera é reativado. Também, o estado blocking pode reativar o estado buscando quando receber um prog=6.
  </div>
  
+ # Traffic Filter (English)
+
+<div align="left"> 
+ The implemented state machine has four states: waiting, searching, danger and blocking. Each state receives a “prog” value or, while in the searching state, a match and performs a certain action. Therefore, generating the correct functioning of the system.
+ </div>
+ <div align="left"> 
+-**Waiting state**: this state is activated when the system is waiting for a “prog” value to execute a certain action, that is, while "prog=0", this state stay actived. When the state receives prog=1 it will activate the comparison with the comparison 1 (ent1='1'), when it receives prog=2 it will activate the comparison with the comparison 2 (ent2='1'), and when it receives prog=3 will activate the comparison with the comparison 3 (ent3='1').
+ </div>
+ <div align="left"> 
+-**Searching state**: is activated when prog=4 is received in the waiting state. While in this state, it is checked if there is any equality in the comparison system, so, if it occurs (it receives a match from the comparators), the danger state is activated. If it receives a prog=5, the blocking state is activated directly. If you receive a prog=7, the system reactivates the waiting state. In this state, the clock counter (cont) is always equal to 0.
+ </div>
+  <div align="left"> 
+-**Danger State**: It is triggered, as explained before, by "match=1" received by the searching state. It continue active for up to four clocks with the alarm activated and returns to the searching state later, if it does not receive "prog=5" (it would activate the blocking state) and resets the clock counter (cont).
+</div>
+ <div align="left"> 
+-**Blocking state**: Is active when receives "prog=5" (attack) in the danger or searching state, which can detect an attack, and activates the alarm. After blocking the data traffic, when it receives "prog=7", the waiting state is reactivated. Also, the blocking state can reactivate the searching state when it receives "prog=6".
+ </div>
  
  
 
